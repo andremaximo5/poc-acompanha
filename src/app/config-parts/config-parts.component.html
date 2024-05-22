@@ -1,6 +1,299 @@
-<po-page-default p-title='Teste2'>
+<po-page-default p-title="Prototipo - Custo em partes">
+  <po-stepper #poStepper>
+    <po-step p-label="Configuração">
+      <!-- <po-list-view p-property-title="name" [p-items]="[
+  { name: 'Registro 1', email: 'register@po-ui.com' },
+  { name: 'Registro 2', email: 'register2@po-ui.com' }
+]">
+      <ng-template p-list-view-content-template let-item>
+        <div class="po-row">
+          <po-info class="po-md-12" p-label="Email" [p-value]="item.email"></po-info>
+        </div>
+      </ng-template>
+    </po-list-view> -->
 
-<po-widget>
-</po-widget>
+      <!-- <hr/> -->
 
+      <font class="po-font-title">Divisão de partes</font>
+
+      <hr />
+
+      <po-accordion>
+        <po-accordion-item
+          *ngFor="let part of parts"
+          [p-label]="getLabel(part)"
+        >
+          <!-- <po-container> -->
+          <div class="po-row">
+            <po-button
+              class="po-sm-12 po-mt-2"
+              p-icon="po-icon-settings"
+              p-label="Configuração"
+              (p-click)="handleOpenModal(part)"
+            >
+            </po-button>
+          </div>
+          <hr />
+          <div *ngIf="poTextAreaComponent.inputEl.nativeElement.value">
+            <po-container class="po-mb-5">
+              <div class="po-text-center po-font-text-large-bold">
+                {{ poTextAreaComponent.inputEl.nativeElement.value }}
+              </div>
+            </po-container>
+            <hr />
+            <po-table
+              class="po-mt-2"
+              [p-items]="[
+                {
+                  produto: '000001',
+                  descricao: 'TINTA AMARELA',
+                  tipo: 'MP',
+                  grupo: '001'
+                },
+                {
+                  produto: '000002',
+                  descricao: 'TINTA PRETA',
+                  tipo: 'MP',
+                  grupo: '002'
+                },
+                {
+                  produto: '000003',
+                  descricao: 'TINTA VERMELHA',
+                  tipo: 'MP',
+                  grupo: '004'
+                },
+                {
+                  produto: '000004',
+                  descricao: 'TINTA LARANJA',
+                  tipo: 'MP',
+                  grupo: '005'
+                },
+                {
+                  produto: '000005',
+                  descricao: 'TINTA FUCSIA',
+                  tipo: 'MP',
+                  grupo: '002'
+                },
+                {
+                  produto: '000006',
+                  descricao: 'TINTA AZUL BEBÊ',
+                  tipo: 'MP',
+                  grupo: '002'
+                }
+              ]"
+              [p-actions]="actions"
+              p-hide-columns-manager
+            >
+            </po-table>
+          </div>
+          <!-- </po-container> -->
+        </po-accordion-item>
+      </po-accordion>
+
+      <hr />
+      <div class="po-row">
+        <po-button
+          class="po-sm-12 po-mt-2"
+          p-icon="po-icon-arrow-right"
+          p-label="Avançar"
+          (p-click)="handleNextStep()"
+        >
+        </po-button>
+      </div>
+    </po-step>
+    <po-step p-label="Processamento">
+      <font class="po-font-title">Divisão de partes</font>
+      <hr />
+      <po-container>
+        <!-- <po-progress
+      p-indeterminate
+      p-show-percentage
+      p-info="O seu progresso foi salvo automaticamente. Então, caso queira, você pode sair desta página sem preocupações e será alertado quando o processo estiver finalizado."
+      p-value="40"
+    >
+    </po-progress>
+    <div>
+    </div> -->
+        <div class="po-row po-mt-1">
+          <div class="po-lg-12 po-xl-12 po-md-1">
+            <div>
+              <div>
+                <p class="po-font-subtitle po-lg-12 po-md-12 po-sm-12 po-mb-2">
+                  Atualizando o cadastro de partes
+                </p>
+              </div>
+            </div>
+            <div class="po-row">
+              <div class="po-lg-6">
+                <div class="po-row po-lg-12 po-md-12 po-sm-12">
+                  <div class="po-font-text-small">
+                    O seu progresso foi salvo automaticamente. Então, caso
+                    queira, você pode sair desta página sem preocupações e será
+                    alertado quando o processo estiver finalizado.
+                  </div>
+                  <po-progress
+                    class="po-mt-3 po-lg-12 po-sm-12"
+                    [p-value]="1"
+
+                  >
+                  </po-progress>
+                </div>
+                <div class="po-row steps-log">
+                  <div>
+                    <div *ngFor="let seq of steps" class="po-font-text-large">
+                      <div
+                        class="po-lg-12 po-md-12 po-sm-12 po-mt-2 po-ml-0 {{
+                          seq.status
+                        }} item-step-log"
+                      >
+                        <div>{{ seq.name }}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="po-lg-6 po-text-center container">
+                <img
+                  src="assets/sample/calc.jpeg"
+                  alt="Imagem de execução do processamento"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </po-container>
+      <div class="po-row">
+        <po-button
+          class="po-sm-12 po-mt-2"
+          p-icon="po-icon-arrow-right"
+          p-label="Avançar"
+          (p-click)="handleNextStep()"
+        >
+        </po-button>
+      </div>
+    </po-step>
+    <po-step p-label="Relatório">
+      <font class="po-font-title">Divisão de partes</font>
+      <hr />
+      <po-table
+        p-hide-columns-manager
+        [p-items]="[
+          {
+            produto: '000001',
+            descricao: 'TINTA AMARELA',
+            tipo: 'MP',
+            grupo: '001',
+            parteAntes: '',
+            parteDepois: '1 - Tinta'
+          },
+          {
+            produto: '000002',
+            descricao: 'TINTA PRETA',
+            tipo: 'MP',
+            grupo: '002',
+            parteAntes: '',
+            parteDepois: '1 - Tinta'
+          },
+          {
+            produto: '000003',
+            descricao: 'TINTA VERMELHA',
+            tipo: 'MP',
+            grupo: '004',
+            parteAntes: '',
+            parteDepois: '1 - Tinta'
+          },
+          {
+            produto: '000004',
+            descricao: 'TINTA LARANJA',
+            tipo: 'MP',
+            grupo: '002',
+            parteAntes: '',
+            parteDepois: '1 - Tinta'
+          },
+          {
+            produto: '000005',
+            descricao: 'TINTA FUCSIA',
+            tipo: 'MP',
+            grupo: '004',
+            parteAntes: '',
+            parteDepois: '1 - Tinta'
+          },
+          {
+            produto: '000006',
+            descricao: 'TINTA AZUL BEBÊ',
+            tipo: 'MP',
+            grupo: '002',
+            parteAntes: '',
+            parteDepois: '1 - Tinta'
+          }
+        ]"
+      >
+      </po-table>
+    </po-step>
+  </po-stepper>
 </po-page-default>
+
+<po-modal
+  #poModal
+  [p-title]="poModalTitle"
+  [p-primary-action]="confirm"
+  [p-secondary-action]="close"
+>
+  <form [formGroup]="form">
+    <section class="po-row">
+      <po-select
+        #poLookup
+        formControlName="field"
+        class="po-lg-4"
+        p-label="Campo"
+        [p-options]="[
+          { label: 'B1_TIPO', value: '1' },
+          { label: 'B1_GRUPO', value: '2' },
+          { label: 'B1_XXX', value: '3' }
+        ]"
+      >
+      </po-select>
+      <po-select
+        #poSelect
+        formControlName="operator"
+        class="po-lg-4"
+        p-label="Operador"
+        [p-options]="[
+          { label: 'igual a ', value: '1' },
+          { label: 'diferente de ', value: '2' },
+          { label: 'contém ', value: '3' }
+        ]"
+      >
+      </po-select>
+      <po-input
+        #poInput
+        formControlName="expression"
+        class="po-lg-4"
+        p-label="Expressao"
+      ></po-input>
+
+      <hr />
+      <po-button-group class="po-md-12 po-mt-2" [p-buttons]="conditions">
+      </po-button-group>
+      <div class="po-row">
+        <po-button
+          class="po-sm-12 po-mt-2"
+          p-icon="po-icon-plus"
+          p-label="Adicionar"
+          (p-click)="addSomething()"
+        >
+        </po-button>
+      </div>
+    </section>
+
+    <hr />
+
+    <po-textarea
+      #poTextArea
+      name="textarea"
+      formControlName="preview"
+      p-label="Prévia"
+    >
+    </po-textarea>
+  </form>
+</po-modal>

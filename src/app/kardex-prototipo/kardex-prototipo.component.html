@@ -1,3 +1,107 @@
-<po-page-default p-title='Teste'>
+<po-page-default
+  p-title="Acompanhamento de custo">
+    <po-stepper #stepper  [p-step-size]="32" >
+      <po-step p-label="Produto" >
+          <po-widget [p-height]="400" class="po-md-12" p-title="Produto" [p-primary-label]="previousLabelWidget"
+            [p-secondary-label]="nextLabelWidget" (p-primary-action)="stepper.previous()"
+            (p-secondary-action)="stepper.next()">
+            <div class="po-row">
+              <po-multiselect
+                #multiselectBranch
+                [p-show-required]="true"
+                p-placeholder="Selecione a filial"
+                class="po-md-6"
+                id="multiselectBranch">
+              </po-multiselect>
+              <po-lookup class="po-md-6" name="lookup"
+                formControlName="produto"
+                p-field-label="codigo"
+                [p-optional]="true"
+                [p-columns]="getColumnsProduct()"
+                p-placeholder="Selecione o produto"
+                [p-infinite-scroll]="true" [p-multiple]="true">
+              </po-lookup>
+              <po-multiselect class="po-md-6" formControlName="tipo"
+                [p-optional]="true"
+                p-placeholder="Selecione o tipo"
+                [p-options]="productType" p-label="Tipo">
+              </po-multiselect>
 
+              <po-lookup class="po-md-6" name="lookupGroup"
+                formControlName="grupo"
+                p-field-label="codigo"
+                [p-optional]="true"
+                [p-columns]="getColumnsProduct()"
+                p-placeholder="Selecione o grupo"
+                [p-infinite-scroll]="true" [p-multiple]="true">
+              </po-lookup>
+            </div>
+            <po-switch class="po-md-6 po-mt-2"
+              formControlName="movimento"
+              name="switch"
+              p-label="Listar produtos sem movimentação"
+              p-label-off="Sim" p-label-on="Nao">
+            </po-switch>
+          </po-widget>
+      </po-step>
+      <po-step p-label="Movimentação">
+          <po-widget class="po-md-12"
+            [p-primary-label]="previousLabelWidget"
+            [p-secondary-label]="confirmLabelWidget"
+            p-title="Movimentação"
+            (p-primary-action)="stepper.previous()">
+            <po-datepicker
+              class="po-md-3"
+              p-placeholder="Período inicial"
+              p-required="true"
+              name="dataDe:"
+              p-label="De">
+            </po-datepicker>
+            <po-datepicker
+              class="po-md-3"
+              p-required="true"
+              p-placeholder="Período final"
+              name="dataAte:"
+              p-label="Até">
+            </po-datepicker>
+            <po-select
+              class="po-md-3"
+              formControlName="moeda"
+              p-required="true"
+              p-label="Moeda"
+              [p-options]="optionsCurrency">
+            </po-select>
+            <po-select
+              class="po-md-3"
+              formControlName="custo"
+              p-required="true"
+              p-label="Custo"
+              [p-options]="optionsCost">
+            </po-select>
+
+            <div class="po-row">
+              <po-lookup class="po-md-6 po-mt-2"
+                name="lookupWareHouse"
+                formControlName="warehouse"
+                p-field-label="codigo"
+                [p-columns]="getColumnsProduct()"
+                p-placeholder="Selecione o armazém"
+                [p-infinite-scroll]="true" [p-multiple]="true">
+              </po-lookup>
+
+              <po-select class="po-md-6 po-mt-2"
+                formControlName="ordem"
+                p-required="true"
+                p-label="Ordenação das movimentações"
+                [p-options]="optionsSequeCalc">
+              </po-select>
+            </div>
+            <po-switch formControlName="listTransLoc"
+              class="po-md-6 po-mt-2" name="switch"
+              p-label="Listar transferência de localização"
+              p-label-off="Sim" p-label-on="Não">
+            </po-switch>
+          </po-widget>
+      </po-step>
+    </po-stepper>
 </po-page-default>
