@@ -22,14 +22,11 @@ import {
     HttpClientModule,
   ],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   readonly menus: Array<PoMenuItem> = [
-    { label: 'Home', action: this.onClick.bind(this) },
+    { label: 'Acompanha Custos', link: 'kardexPart' },
+    { label: 'Config Parts', link: 'configParts' }
   ];
 
-  private onClick() {
-    alert('Clicked in menu item');
-  }
 }
