@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PoPageAction, PoTableAction, PoTableColumn } from '@po-ui/ng-components';
+import { CostFilterResults, MockKardexProduct } from './mock-results';
 
 @Component({
   selector: 'app-kardex-prototipo-results',
@@ -8,6 +9,7 @@ import { PoPageAction, PoTableAction, PoTableColumn } from '@po-ui/ng-components
 })
 export class KardexPrototipoResultsComponent implements OnInit {
   public columnsMoviment :any
+  public mockKardexProduct = new MockKardexProduct();
   public movementTableResultIems: Array<any> = []
   public totalRecords: number = 0
   public colums = this.getColumnMovement()
@@ -26,6 +28,7 @@ export class KardexPrototipoResultsComponent implements OnInit {
   constructor(public router: Router) { }
 
   ngOnInit() {
+    this.movementTableResultIems = this.mockKardexProduct.items
   }
 
     getColumnMovement(): Array<PoTableColumn> {
@@ -46,6 +49,6 @@ export class KardexPrototipoResultsComponent implements OnInit {
   }
 
   detailsListResults(select:any): void {
-      this.router.navigate(['kardex-prototipo'])
+      this.router.navigate(['kardexMoviments'])
     }
 }

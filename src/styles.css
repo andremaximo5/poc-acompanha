@@ -1,1 +1,107 @@
 /* You can add global styles to this file, and also import other style files */
+.type-label-moviments {
+  padding: 2px 8px;
+  width: 166px;
+  height: 20px;
+  line-height: 16px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-family:sans-serif;
+  border-radius: 3px;
+  color: #fff;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.type-label-movimentsOp {
+  padding: 2px 8px;
+  width: 150px;
+  height: 20px;
+  line-height: 16px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-family:sans-serif;
+  border-radius: 3px;
+  color: #fff;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.type-label-moviments.productionOrder {
+  background-color:#0d729c
+}
+.type-label-moviments.entryDocument {
+  background-color:#00b28e
+}
+.type-label-moviments.exitDocument {
+  background-color:#c64840
+}
+.type-label-moviments.internalMovements {
+  background-color:#29b6c5
+}
+
+
+.type-label-movimentsOp.E0 {
+  background-color:#56b96b
+}
+.type-label-movimentsOp.E1 {
+  background-color:#c64840
+}
+.type-label-movimentsOp.E2 {
+  background-color:#2c43c8
+}
+.type-label-movimentsOp.E3 {
+  background-color:#ea9b3e
+}
+.type-label-movimentsOp.E4 {
+  background-color:#964b00c5
+}
+.type-label-movimentsOp.E5 {
+  background-color:#0f0f0fb6
+}
+.type-label-movimentsOp.E6 {
+  background-color:#ab43c8
+}
+.type-label-movimentsOp.E9 {
+  background-color:#505152
+}
+.type-label-movimentsOp.EA {
+  background-color:#800404
+}
+.type-label-movimentsOp.R0 {
+  background-color:#abc249
+}
+.type-label-movimentsOp.R1 {
+  background-color:#abc249
+}
+
+
+
+
+.type-label-testtela {
+  width: 277px;
+  height: 132px;
+  padding: 0px 16px 40px 0px;
+  border-radius: 3px;
+  background-color: #e90d0d;
+  position: absolute;
+
+}
+
+.Mostrando-todas-movi {
+  width: 245px;
+  height: 24px;
+  margin: 14px 0 6px 16px;
+  padding: 0px 96px 8px 133px;
+  font-family: NunitoSans;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: center;
+  color: #4a5c60;
+}
