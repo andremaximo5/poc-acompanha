@@ -49,7 +49,8 @@
             [p-primary-label]="previousLabelWidget"
             [p-secondary-label]="confirmLabelWidget"
             p-title="Movimentação"
-            (p-primary-action)="stepper.previous()">
+            (p-primary-action)="stepper.previous()"
+            (p-secondary-action)="onConfirmStep(stepper)">
             <po-datepicker
               class="po-md-3"
               p-placeholder="Período inicial"

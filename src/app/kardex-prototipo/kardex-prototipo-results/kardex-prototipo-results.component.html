@@ -1,0 +1,22 @@
+<po-page-list #poPageList  p-title="Acompanhamento de custo" [p-actions]="actionsPoPageList">
+  <div class="po-row">
+    <p class="po-font-text-small po-lg-6" *> Mostrando
+      {{ movementTableResultIems.length }}
+       de
+      {{ totalRecords }}
+      produtos em custo médio do período.
+    </p>
+  </div>
+  <po-table
+    [p-columns]="colums"
+    [p-actions]="actions"
+    [p-actions-right]="true"
+    [p-height]="450"
+    [p-infinite-scroll]="true"
+    [p-infinite-scroll-distance]="80"
+    p-hide-table-search ="false"
+    [p-actions-right]="false"
+    p-sort
+    [p-items]="movementTableResultIems">
+  </po-table>
+

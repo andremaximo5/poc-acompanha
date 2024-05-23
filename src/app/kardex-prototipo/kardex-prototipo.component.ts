@@ -1,5 +1,6 @@
 import { PoBreadcrumb, PoLookupColumn } from '@po-ui/ng-components';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-kardex-prototipo',
@@ -11,7 +12,7 @@ export class KardexPrototipoComponent implements OnInit {
   public previousLabelWidget: string = 'Voltar';
   public productType : any;
   public vertical: string= 'Vertical'
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit() {
   }
@@ -45,5 +46,9 @@ public optionsCost = [
     items: [
       { label: "Acompanhamento de custo", link: '' }]
   };
+
+  onConfirmStep(stepper:any) {
+      this.router.navigate(['kardexResults'])
+  }
 
 }
