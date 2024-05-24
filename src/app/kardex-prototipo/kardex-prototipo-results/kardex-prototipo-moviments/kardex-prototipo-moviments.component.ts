@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PoTableAction, PoTableColumn } from '@po-ui/ng-components';
 import { MockKardexMoviment } from './mock-moviments';
 import { Router } from '@angular/router';
+import { MockCostFilterProductionOrder } from './kardex-prototipo-ordemproduction/mock-ordemproduction';
 
 @Component({
   selector: 'app-kardex-prototipo-moviments',
@@ -26,7 +27,7 @@ export class KardexPrototipoMovimentsComponent implements OnInit {
   public outflowTotalQuantityFormated:any
   public outflowTotalBalanceFormated:any
   public quantityvariation:any
-  public movimentTableItems:Array<any> = []
+  public movimentTableItems:any
   public totalRecordCount:any
   public columnsMoviment:any
   public mockItens = new MockKardexMoviment()
@@ -40,7 +41,7 @@ export class KardexPrototipoMovimentsComponent implements OnInit {
 
   ngOnInit() {
     this.columnsMoviment = this.getColumnMovements()
-    this.movimentTableItems = this.mockItens.items
+    this.movimentTableItems = new MockKardexMoviment().items
 
   }
 
@@ -50,8 +51,9 @@ export class KardexPrototipoMovimentsComponent implements OnInit {
 
 
   detailsListResults(select:any): void {
-      this.router.navigate(['kardexMoviments'])
+      this.router.navigate(['kardexOrdem'])
     }
+
 
 
   getColumnMovements(): Array<PoTableColumn> {

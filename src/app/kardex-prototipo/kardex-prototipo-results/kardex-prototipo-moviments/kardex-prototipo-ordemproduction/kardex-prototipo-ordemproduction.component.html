@@ -1,3 +1,94 @@
-<p>
-  kardex-prototipo-ordemproduction works!
-</p>
+<po-page-list #poPageList  p-title="descriptionProduct"
+  p-title="Relação por ordem de produção">
+  <po-list-view
+    p-property-title="name"
+    [p-items]="informationProductionOrder">
+    <ng-template p-list-view-content-template let-item>
+      <div class="po-row">
+        <po-info class="po-md-4" p-label="Código" [p-value]="item.code"></po-info>
+        <po-info class="po-md-4" p-label="Data do último fechamento" [p-value]="item.dateClose"></po-info>
+        <po-info class="po-md-4" p-label="Valor final no último fechamento" [p-value]="item.finalValue"></po-info>
+      </div>
+    </ng-template>
+  </po-list-view>
+  <div class="po-mt-3">
+    <div class="po-mb-3 po-font-subtitle font-color ">
+      Total Geral
+    </div>
+    <po-slide #slide [p-interval]="100" [p-slides]="landscapes">
+      <div *p-slide-content-template="let item; let i = index">
+        <p class="po-font-subtitle po-lg-12 po-md-12 po-sm-12 po-mt-12">
+        </p>
+        <div class="po-mb-1" *ngFor="let itemWidget of itensForSlide[slide.getCurrentSlideIndex()]">
+          <po-widget class="po-lg-4 po-mb-1" p-title="{{ itemWidget.label }}">
+            <div class="po-row">
+              <div class="po-lg-6 po-text-center po-font-title sample-container-dashboard">
+                {{ itemWidget.value }}
+              </div>
+              <div class="po-lg-6 po-text-center po-font-title sample-container-dashboard">
+                {{ itemWidget.valueCost }}
+              </div>
+            </div>
+            <div class="po-row">
+              <div class="po-lg-6 po-font-text-small po-text-center sample-container-dashboard">
+                Quantidade
+              </div>
+              <div class="po-lg-6 po-font-text-small po-text-center sample-container-dashboard">
+                Custo
+              </div>
+            </div>
+          </po-widget>
+        </div>
+      </div>
+    </po-slide>
+  </div>
+  <p class="po-font-subtitle font-color po-lg-6 po-md-12 po-sm-6 po-mt-3">
+    Movimentações
+    <span
+    p-tooltip="Exportar dados"
+    class="po-icon po-field-icon po-icon po-icon-export po-mt-2"
+    >
+    </span>
+  </p>
+  <div class="po-row-right po-mt-5">
+    <div class="po-page-list-filter-wrapper po-field-container-right po-lg-4 po-md-6 po-sm-6">
+      <div class="po-field-container-content po-page-filter-content po-mt-5 po-mb-3"
+        [ngClass]="'po-page-filter-input-variable-size'">
+        <input  class="po-input po-input-icon-right" type="text" name="fieldSearch"
+          placeholder="Código do produto" />
+        <div class="po-field-icon-container-right">
+          <span #iconLookup class="po-icon po-field-icon po-icon-search">
+          </span>
+        </div>
+      </div>
+      <div class="po-page-list-filter-search po-mt-5 po-mb-3">
+        <span class="po-page-list-filter-search-link" >Busca avançada
+        </span>
+      </div>
+    </div>
+  </div>
+  <p class="po-lg-12 po-font-text-small">
+    <span #iconLookup > </span>
+  </p>
+
+  <p class="po-lg-12 po-font-text-small">
+    Mostrando
+    {{ productionOrderItemTable.length }}
+    de {{ totalRecords }} movimentos encontrados.
+  </p>
+  <po-table
+    p-container="border"
+    [p-columns]="columDetailsOdemProduction"
+    [p-hide-table-search]="true"
+    [p-items]="productionOrderItemTable" [p-max-columns]="9" [p-infinite-scroll]="true"
+    [p-height]="400"
+    [p-sort]="true"
+   p-container="shadow" [p-height]="400">
+    <ng-template p-table-column-template [p-property]="'cf'" let-value>
+      <div class="type-label-movimentsOp {{ value.substr(1, 2) | uppercase }}">
+        {{ value }}
+      </div>
+    </ng-template>
+  </po-table>
+</po-page-list>
+

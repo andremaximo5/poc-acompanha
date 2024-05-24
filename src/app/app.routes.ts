@@ -3,6 +3,7 @@ import { KardexPrototipoComponent } from './kardex-prototipo/kardex-prototipo.co
 import { ConfigPartsComponent } from './config-parts/config-parts.component';
 import { KardexPrototipoResultsComponent } from './kardex-prototipo/kardex-prototipo-results/kardex-prototipo-results.component';
 import { KardexPrototipoMovimentsComponent } from './kardex-prototipo/kardex-prototipo-results/kardex-prototipo-moviments/kardex-prototipo-moviments.component';
+import { KardexPrototipoOrdemproductionComponent } from './kardex-prototipo/kardex-prototipo-results/kardex-prototipo-moviments/kardex-prototipo-ordemproduction/kardex-prototipo-ordemproduction.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -16,6 +17,9 @@ export const routes: Routes = [
   },
   {
     path: 'kardexMoviments', component: KardexPrototipoMovimentsComponent
+  },
+  {
+    path: 'kardexOrdem', component: KardexPrototipoOrdemproductionComponent
   }
 
 ];
