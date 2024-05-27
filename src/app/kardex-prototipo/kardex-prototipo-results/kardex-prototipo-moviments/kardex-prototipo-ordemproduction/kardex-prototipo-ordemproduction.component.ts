@@ -10,10 +10,12 @@ import { MockCostFilterProductionOrder } from './mock-ordemproduction';
 export class KardexPrototipoOrdemproductionComponent implements OnInit, AfterContentInit  {
   public informationProductionOrder = [{ name: 'Detalhes' , code: '', dateClose:'', finalValue: ''}];
   public columDetailsOdemProduction = this.GetColummProductionOrdem()
+  public columnsMovimentPart = this.GetColummProductionOrdemPart()
   public page = 1;
   public pageSize = 10;
   public totalRecords = 0;
   public productionOrderItemTable:any
+  public productionOrderItemTablePart:any
   public itensForSlide = [
     [
       {
@@ -89,6 +91,7 @@ export class KardexPrototipoOrdemproductionComponent implements OnInit, AfterCon
 
   ngOnInit() {
     this.productionOrderItemTable= new MockCostFilterProductionOrder().mockCostFilterProductionOrderItems.items
+    this.productionOrderItemTablePart = new MockCostFilterProductionOrder().mockCostFilterProductionOrderItems.items
     this.poTabs.active =true
   }
 
@@ -108,6 +111,25 @@ export class KardexPrototipoOrdemproductionComponent implements OnInit, AfterCon
       { property: 'standardcost', label: 'Custo standard', type: 'number', visible: false },
       { property: 'standardcosttotal', label: 'Custo standard unitário', type: 'number', visible: false })
     return columnsMoviment;
+  }
+
+    GetColummProductionOrdemPart(): Array<PoTableColumn>{
+    const columnsMovimentPart: Array<PoTableColumn> = [];
+
+    columnsMovimentPart.push(
+      { property: 'cf', label: 'Tipo de movimentação', width: '15%', type: 'columnTemplate' },
+      { property: 'code', label: 'Código do produto', type: 'string', width: '25%' },
+      { property: 'description', label: 'Descrição', type: 'string', visible: false },
+      { property: 'unitymesure', label: 'Unidade de Medida', type: 'string', visible: false },
+      { property: 'rawquant', label: 'Quantidade', type: 'number' },
+      { property: 'rawcost', label: 'Part01', type: 'number'},
+      { property: 'averagecost', label: 'Part02', type: 'number' },
+      { property: 'date', label: 'Part03', type: 'date' },
+      { property: 'document', label: 'Part04', type: 'string' },
+      { property: 'standardcost', label: 'Part05', type: 'number' },
+      { property: 'standardcosttotal', label: 'Part06', type: 'number' },
+      { property: 'standardcosttotal2', label: 'Outros', type: 'number' })
+    return columnsMovimentPart;
   }
   public landscapes: Array<PoSlideItem> = [
     { action: undefined, alt: undefined, image: 'undefined', link: undefined },

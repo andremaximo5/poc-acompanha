@@ -1,5 +1,5 @@
 import { AfterContentInit, Component, OnInit, ViewChild } from '@angular/core';
-import { PoChartSerie, PoChartType, PoDialogService, PoModalComponent, PoTabComponent, PoTableAction, PoTableColumn, PoTabsComponent } from '@po-ui/ng-components';
+import { PoAccordionItemComponent, PoChartSerie, PoChartType, PoDialogService, PoModalComponent, PoTabComponent, PoTableAction, PoTableColumn, PoTabsComponent } from '@po-ui/ng-components';
 import { MockKardexMoviment } from './mock-moviments';
 import { Router } from '@angular/router';
 import { MockCostFilterProductionOrder } from './kardex-prototipo-ordemproduction/mock-ordemproduction';
@@ -8,7 +8,7 @@ import { MockCostFilterProductionOrder } from './kardex-prototipo-ordemproductio
   selector: 'app-kardex-prototipo-moviments',
   templateUrl: './kardex-prototipo-moviments.component.html',
 })
-export class KardexPrototipoMovimentsComponent implements OnInit  {
+export class KardexPrototipoMovimentsComponent implements OnInit,  AfterContentInit {
   public getcodeProct = ''
   public getdescriptionProduct = ''
   public getdataInitial:any
@@ -30,6 +30,7 @@ export class KardexPrototipoMovimentsComponent implements OnInit  {
   public movimentTableItems:any
   public totalRecordCount:any
   public columnsMoviment:any
+  public columnsMovimentParts: any;
   public mockItens = new MockKardexMoviment()
   actions: Array<PoTableAction> = [
     { action: this.detailsListResults.bind(this),
@@ -46,15 +47,21 @@ export class KardexPrototipoMovimentsComponent implements OnInit  {
   ];
   public coffeConsumingChartType: PoChartType = PoChartType.Donut;
   @ViewChild(PoTabComponent, { static: true }) poTabs: PoTabComponent;
-  @ViewChild(PoModalComponent,{static: true}) poModal: PoModalComponent
+  @ViewChild(PoModalComponent,{static: true}) poModal: PoModalComponent;
+  @ViewChild(PoAccordionItemComponent, { static: true }) questionOne: PoAccordionItemComponent;
 
   constructor(public router: Router,
               private poAlert: PoDialogService) { }
 
   ngOnInit() {
     this.columnsMoviment = this.getColumnMovements()
+    this.columnsMovimentParts = this.getColumnMovementsParts()
     this.movimentTableItems = new MockKardexMoviment().items
       this.poTabs.active =true ;
+  }
+
+  ngAfterContentInit() {
+    this.questionOne.expand();
   }
 
   getTitle(): string {
@@ -106,6 +113,29 @@ export class KardexPrototipoMovimentsComponent implements OnInit  {
       { property: 'trt', label: 'Sequencia de Estrutura', type: 'string' });
 
       return this.columnsMoviment;
+  }
+
+
+    getColumnMovementsParts(): Array<PoTableColumn> {
+    this.columnsMovimentParts = [];
+
+    this.columnsMovimentParts.push(
+      {property: 'archiveLabel', label: 'Tipo de documento', visible: true, width: '18%', type: 'columnTemplate'},
+      { property: 'cf', label: "Código Fiscal/ Movimentos internos", type: 'string',width: '8%', visible: false },
+      { property: 'x5_desc', label: "Descrição do código fiscal", type: 'string', visible: false },
+      { property: 'branchmovement', label: 'Filial', type: 'string', width: '10%', visible:false },
+      { property: 'warehouse', label: 'Armazém', type: 'string', width: '6%', visible: true },
+      { property: 'code', label: 'Código', type: 'string', width: '15%', visible: false },
+      { property: 'description', label: 'Descrição', type: 'string', width: '18%', visible: false },
+      { property: 'quantity', label: 'Quantidade', type: 'number' },
+      { property: 'cost', label: 'PART01', type: 'number' },
+      { property: 'averagecost' , label: 'PART02', type: 'number' },
+      { property: 'totalquantity', label: 'PART03',type: 'number' },
+      { property: 'totalcost', label: 'PART04', type: 'number' },
+      { property: 'typingdate', label: 'PART05', type: 'date' },
+      { property: 'op', label: 'PART06', type: 'string' },
+      { property: 'batch', label: 'Outros', type: 'string', visible: false },);
+      return this.columnsMovimentParts;
   }
   showMeTheDates(event: any) {
     this.poAlert.alert({

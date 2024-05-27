@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PoModule } from '@po-ui/ng-components';
+import { PoChartModule, PoModule } from '@po-ui/ng-components';
 import { KardexPrototipoOrdemproductionComponent } from './kardex-prototipo-ordemproduction.component';
 
 
@@ -10,6 +10,7 @@ import { KardexPrototipoOrdemproductionComponent } from './kardex-prototipo-orde
   imports: [
     CommonModule,
     PoModule,
+    PoChartModule
   ],
   exports:[KardexPrototipoOrdemproductionComponent]
 })

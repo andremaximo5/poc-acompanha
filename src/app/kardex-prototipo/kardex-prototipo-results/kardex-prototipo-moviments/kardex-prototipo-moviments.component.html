@@ -1,7 +1,7 @@
 <po-page-list #poPageList [p-title]="getTitle()">
   <div class="po-row">
     <po-accordion class="po-lg-12 po-mb-1">
-      <po-accordion-item #accordionFirstItem p-label="Resumo dos custos">
+      <po-accordion-item #questionOne p-label="Resumo dos custos">
         <!-- Resumo de custo inicial -->
         <po-widget class="po-lg-4 po-mb-1" p-title="Resumo de custo inicial" data-cy="cardInitCost" (p-click)="handleCarddChart()">
           <p class="po-font-text-small po-lg-12 po-md-12 po-sm-12 po-mb-2">
@@ -178,7 +178,7 @@
       </po-table>
     </po-tab>
     <po-tab #poTabs p-label="Mov. Partes">
-         <po-table [p-columns]="columnsMoviment" [p-items]="movimentTableItems" [p-actions]="actions" [p-height]="400"
+         <po-table [p-columns]="columnsMovimentParts" [p-items]="movimentTableItems" [p-actions]="actions" [p-height]="400"
         [p-hide-table-search]="true" [p-actions-right]="false">
         <ng-template p-table-column-template [p-property]="'archiveLabel'" let-value>
           <div class="type-label-moviments {{ value }}">
