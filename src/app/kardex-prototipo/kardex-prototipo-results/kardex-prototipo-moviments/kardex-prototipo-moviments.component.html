@@ -3,7 +3,7 @@
     <po-accordion class="po-lg-12 po-mb-1">
       <po-accordion-item #accordionFirstItem p-label="Resumo dos custos">
         <!-- Resumo de custo inicial -->
-        <po-widget class="po-lg-4 po-mb-1" p-title="Resumo de custo inicial" data-cy="cardInitCost">
+        <po-widget class="po-lg-4 po-mb-1" p-title="Resumo de custo inicial" data-cy="cardInitCost" (p-click)="handleCarddChart()">
           <p class="po-font-text-small po-lg-12 po-md-12 po-sm-12 po-mb-2">
             Em {{ getdataInitial }}
           </p>
@@ -32,7 +32,7 @@
         </po-widget>
 
         <!-- Resumo de custo final -->
-        <po-widget class="po-lg-4 po-mb-1" p-title="Resumo de custo final" data-cy="cardFinalCost">
+        <po-widget class="po-lg-4 po-mb-1" p-title="Resumo de custo final"  data-cy="cardFinalCost" (p-click)="handleCarddChart()" >
           <p class="po-font-text-small po-lg-12 po-md-12 po-sm-12 po-mb-2">
             Variação do custo médio {{ getdataFinal}}
           </p>
@@ -62,7 +62,7 @@
         </po-widget>
 
         <!-- Variacao % -->
-        <po-widget class="po-lg-4 po-mb-1" p-title="Variação %" data-cy="cardCostVariation">
+        <po-widget class="po-lg-4 po-mb-1" p-title="Variação %" data-cy="cardCostVariation"  >
           <p class="po-font-text-small po-lg-12 po-md-12 po-sm-12 po-mb-2">
             De {{ getyearFirst }} à {{ getfinalYear }}
           </p>
@@ -201,3 +201,11 @@
   </po-tabs>
 
 </po-page-list>
+
+<po-modal #poModal>
+  <po-widget>
+    <po-chart class="po-lg-8" p-title="Percentual Custo das partes" [p-series]="coffeeConsumption"
+          [p-type]="coffeConsumingChartType" (p-series-click)="showMeTheDates($event)">
+        </po-chart>
+  </po-widget>
+</po-modal>

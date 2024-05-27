@@ -1,5 +1,5 @@
 import { AfterContentInit, Component, OnInit, ViewChild } from '@angular/core';
-import { PoTabComponent, PoTableAction, PoTableColumn, PoTabsComponent } from '@po-ui/ng-components';
+import { PoChartSerie, PoChartType, PoDialogService, PoModalComponent, PoTabComponent, PoTableAction, PoTableColumn, PoTabsComponent } from '@po-ui/ng-components';
 import { MockKardexMoviment } from './mock-moviments';
 import { Router } from '@angular/router';
 import { MockCostFilterProductionOrder } from './kardex-prototipo-ordemproduction/mock-ordemproduction';
@@ -37,9 +37,19 @@ export class KardexPrototipoMovimentsComponent implements OnInit  {
       label: "Detalhes",
      }
   ];
+  coffeeConsumption: Array<PoChartSerie> = [
+    { label: 'Finland', data: 9.6, tooltip: 'Finland (Europe)' },
+    { label: 'Norway', data: 7.2, tooltip: 'Norway (Europe)' },
+    { label: 'Netherlands', data: 6.7, tooltip: 'Netherlands (Europe)' },
+    { label: 'Slovenia', data: 6.1, tooltip: 'Slovenia (Europe)' },
+    { label: 'Austria', data: 5.5, tooltip: 'Austria (Europe)' }
+  ];
+  public coffeConsumingChartType: PoChartType = PoChartType.Donut;
   @ViewChild(PoTabComponent, { static: true }) poTabs: PoTabComponent;
+  @ViewChild(PoModalComponent,{static: true}) poModal: PoModalComponent
 
-  constructor(public router: Router) { }
+  constructor(public router: Router,
+              private poAlert: PoDialogService) { }
 
   ngOnInit() {
     this.columnsMoviment = this.getColumnMovements()
@@ -96,5 +106,15 @@ export class KardexPrototipoMovimentsComponent implements OnInit  {
       { property: 'trt', label: 'Sequencia de Estrutura', type: 'string' });
 
       return this.columnsMoviment;
+  }
+  showMeTheDates(event: any) {
+    this.poAlert.alert({
+      title: 'Statistic',
+      message: `${event.label} consuming ${event.data}kg per capita!`,
+      ok: () => {}
+    });
+  }
+  handleCarddChart():void{
+    this.poModal.open()
   }
 }
