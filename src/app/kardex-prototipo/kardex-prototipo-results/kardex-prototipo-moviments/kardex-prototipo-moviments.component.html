@@ -1,31 +1,23 @@
-<po-page-list
-  #poPageList
-  [p-title]="getTitle()">
+<po-page-list #poPageList [p-title]="getTitle()">
   <div class="po-row">
     <po-accordion class="po-lg-12 po-mb-1">
-      <po-accordion-item #accordionFirstItem
-        p-label="Resumo dos custos">
+      <po-accordion-item #accordionFirstItem p-label="Resumo dos custos">
         <!-- Resumo de custo inicial -->
-        <po-widget class="po-lg-4 po-mb-1"
-          p-title="Resumo de custo inicial"
-          data-cy="cardInitCost">
+        <po-widget class="po-lg-4 po-mb-1" p-title="Resumo de custo inicial" data-cy="cardInitCost">
           <p class="po-font-text-small po-lg-12 po-md-12 po-sm-12 po-mb-2">
             Em {{ getdataInitial }}
           </p>
-          <div class="po-font-display po-text-center"
-            data-cy="valueCardInitCostTot">
+          <div class="po-font-display po-text-center" data-cy="valueCardInitCostTot">
             R$ {{ initialCostFormated }}
           </div>
           <p class="po-font-text-small po-text-center po-md-12 po-sm-12 po-mb-2">
             "Valor total"
           </p>
           <div class="po-row">
-            <div class="po-lg-6 po-text-center po-font-title sample-container-dashboard"
-              data-cy="valueCardInitCostQtd">
+            <div class="po-lg-6 po-text-center po-font-title sample-container-dashboard" data-cy="valueCardInitCostQtd">
               {{ initialQuantityFormated }}
             </div>
-            <div class="po-lg-6 po-text-center po-font-title sample-container-dashboard"
-              data-cy="valueCardInitCostCM">
+            <div class="po-lg-6 po-text-center po-font-title sample-container-dashboard" data-cy="valueCardInitCostCM">
               R$ {{ initialAverageCostFormated }}
             </div>
           </div>
@@ -40,14 +32,11 @@
         </po-widget>
 
         <!-- Resumo de custo final -->
-        <po-widget class="po-lg-4 po-mb-1"
-          p-title="Resumo de custo final"
-          data-cy="cardFinalCost">
+        <po-widget class="po-lg-4 po-mb-1" p-title="Resumo de custo final" data-cy="cardFinalCost">
           <p class="po-font-text-small po-lg-12 po-md-12 po-sm-12 po-mb-2">
             Variação do custo médio {{ getdataFinal}}
           </p>
-          <div class="po-font-display po-text-center"
-            data-cy="valueCardFinalCostTot">
+          <div class="po-font-display po-text-center" data-cy="valueCardFinalCostTot">
             R$ {{ finalCostFormated }}
           </div>
           <p class="po-font-text-small po-text-center po-lg-12 po-md-12 po-sm-12 po-mb-2">
@@ -58,8 +47,7 @@
               data-cy="valueCardFinalCostQtd">
               {{ finalQuantityFormated }}
             </div>
-            <div class="po-lg-6 po-text-center po-font-title sample-container-dashboard"
-              data-cy="valueCardFinalCostCM">
+            <div class="po-lg-6 po-text-center po-font-title sample-container-dashboard" data-cy="valueCardFinalCostCM">
               R$ {{ finalAverageCostFormated }}
             </div>
           </div>
@@ -74,37 +62,29 @@
         </po-widget>
 
         <!-- Variacao % -->
-        <po-widget class="po-lg-4 po-mb-1"
-          p-title="Variação %"
-          data-cy="cardCostVariation">
+        <po-widget class="po-lg-4 po-mb-1" p-title="Variação %" data-cy="cardCostVariation">
           <p class="po-font-text-small po-lg-12 po-md-12 po-sm-12 po-mb-2">
             De {{ getyearFirst }} à {{ getfinalYear }}
           </p>
-          <div class="po-font-display po-text-center"
-            data-cy="valueCardCostVariation">
+          <div class="po-font-display po-text-center" data-cy="valueCardCostVariation">
             {{ getpercentageOfVariation }}
           </div>
-          <p
-            class="po-font-text-small po-text-center po-lg-12 po-md-12 po-sm-12 po-mb-2"
-          >
+          <p class="po-font-text-small po-text-center po-lg-12 po-md-12 po-sm-12 po-mb-2">
             Resumo dos custos
           </p>
         </po-widget>
       </po-accordion-item>
 
-      <po-accordion-item
-        p-label="Totais de entradas e saídas">
+      <po-accordion-item p-label="Totais de entradas e saídas">
         <!-- Totais de entradas -->
-        <po-widget class="po-lg-4 po-mb-1"
-          p-title="Totais de entradas e saídas"
-          data-cy="cardTotalInflow">
+        <po-widget class="po-lg-4 po-mb-1" p-title="Totais de entradas e saídas" data-cy="cardTotalInflow">
           <div class="po-row">
             <div class="po-lg-12 po-text-center po-font-title sample-container-dashboard"
               data-cy="valueCardTotalInflowQtd">
               {{ inflowTotalQuantityFormated }}
             </div>
             <div class="po-lg-12 po-font-text-small po-text-center sample-container-dashboard">
-                Quantidade das entradas,
+              Quantidade das entradas,
             </div>
             <div class="po-lg-12 po-text-center po-font-title sample-container-dashboard po-mt-2"
               data-cy="valueCardTotalInflowCost">
@@ -117,9 +97,7 @@
         </po-widget>
 
         <!-- Totais de saidas -->
-        <po-widget class="po-lg-4 po-mb-1"
-          p-title="Totais de saídas"
-          data-cy="cardTotalOutflow">
+        <po-widget class="po-lg-4 po-mb-1" p-title="Totais de saídas" data-cy="cardTotalOutflow">
           <div class="po-row">
             <div class="po-lg-12 po-text-center po-font-title sample-container-dashboard"
               data-cy="valueCardTotalOutflowQtd">
@@ -139,11 +117,8 @@
         </po-widget>
 
         <!-- Variacao % -->
-        <po-widget class="po-lg-4 po-mb-1"
-          p-title="Variação (%)"
-          data-cy="cardBalanceVariation">
-          <div class="po-font-display po-text-center"
-            data-cy="valueCardBalanceVariation">
+        <po-widget class="po-lg-4 po-mb-1" p-title="Variação (%)" data-cy="cardBalanceVariation">
+          <div class="po-font-display po-text-center" data-cy="valueCardBalanceVariation">
             {{ quantityvariation }}
           </div>
           <p class="po-font-text-small po-text-center po-lg-12 po-md-12 po-sm-12 po-mb-2">
@@ -155,18 +130,15 @@
     </po-accordion>
   </div>
   <p class="po-font-subtitle font-color po-lg-6 po-md-12 po-sm-6 po-mt-5">
-      Detalhes das movimentações de custo
-    <span
-    p-tooltip="Exportar dados"
-    class="po-icon po-field-icon po-icon po-icon-export po-mt-2"
-    >
+    Detalhes das movimentações de custo
+    <span p-tooltip="Exportar dados" class="po-icon po-field-icon po-icon po-icon-export po-mt-2">
     </span>
   </p>
   <div class="po-row-right po-mt-5">
     <div class="po-page-list-filter-wrapper po-field-container-right po-lg-4 po-md-6 po-sm-6">
       <div class="po-field-container-content po-page-filter-content po-mt-5 po-mb-3"
         [ngClass]="'po-page-filter-input-variable-size'">
-        <input  class="po-input po-input-icon-right" type="text" name="fieldSearch"
+        <input class="po-input po-input-icon-right" type="text" name="fieldSearch"
           placeholder="Codigo Op Fiscal ou mov. internos" />
         <div class="po-field-icon-container-right">
           <span #iconLookup class="po-icon po-field-icon po-icon-search">
@@ -184,22 +156,14 @@
   <p class="po-lg-12 po-font-text-small">
     Mostrando {{movimentTableItems.length }} de {{ totalRecordCount }} documentos encontrados.
   </p>
-  <po-table
-    [p-columns]="columnsMoviment"
-    [p-items]="movimentTableItems"
-    [p-actions]="actions"
-    [p-height]="400"
-    [p-hide-table-search]="true"
-    [p-actions-right]="false"
-
-  >
-    <ng-template
-      p-table-column-template
-      [p-property]="'archiveLabel'"
-      let-value
-    ><div class="type-label-moviments {{ value }}">
-        {{
-          value === "internalMovements"
+  <po-tabs class="po-lg-12">
+    <po-tab p-label="Movimento">
+      <po-table [p-columns]="columnsMoviment" [p-items]="movimentTableItems" [p-actions]="actions" [p-height]="400"
+        [p-hide-table-search]="true" [p-actions-right]="false">
+        <ng-template p-table-column-template [p-property]="'archiveLabel'" let-value>
+          <div class="type-label-moviments {{ value }}">
+            {{
+            value === "internalMovements"
             ? "MOVIMENTO INTERNO"
             : value === "productionOrder"
             ? "ORDEM DE PRODUÇÃO"
@@ -208,9 +172,32 @@
             : value === "entryDocument"
             ? "DOCUMENTO DE ENTRADA"
             : "Sem movimentos"
-        }}
-      </div>
-    </ng-template>
-  </po-table>
-</po-page-list>
+            }}
+          </div>
+        </ng-template>
+      </po-table>
+    </po-tab>
+    <po-tab #poTabs p-label="Mov. Partes">
+         <po-table [p-columns]="columnsMoviment" [p-items]="movimentTableItems" [p-actions]="actions" [p-height]="400"
+        [p-hide-table-search]="true" [p-actions-right]="false">
+        <ng-template p-table-column-template [p-property]="'archiveLabel'" let-value>
+          <div class="type-label-moviments {{ value }}">
+            {{
+            value === "internalMovements"
+            ? "MOVIMENTO INTERNO"
+            : value === "productionOrder"
+            ? "ORDEM DE PRODUÇÃO"
+            : value === "exitDocument"
+            ? "DOCUMENTO DE SAÍDA"
+            : value === "entryDocument"
+            ? "DOCUMENTO DE ENTRADA"
+            : "Sem movimentos"
+            }}
+          </div>
+        </ng-template>
+      </po-table>
 
+    </po-tab>
+  </po-tabs>
+
+</po-page-list>

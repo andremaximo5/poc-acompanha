@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { PoSlideItem, PoTableColumn } from '@po-ui/ng-components';
+import { AfterContentInit, Component, OnInit, ViewChild } from '@angular/core';
+import { PoAccordionItemComponent, PoChartSerie, PoChartType, PoDialogService, PoSlideItem, PoTabComponent, PoTableColumn } from '@po-ui/ng-components';
 import { MockCostFilterProductionOrder } from './mock-ordemproduction';
 
 @Component({
@@ -7,7 +7,7 @@ import { MockCostFilterProductionOrder } from './mock-ordemproduction';
   templateUrl: './kardex-prototipo-ordemproduction.component.html',
   styleUrls: ['./kardex-prototipo-ordemproduction.component.css']
 })
-export class KardexPrototipoOrdemproductionComponent implements OnInit {
+export class KardexPrototipoOrdemproductionComponent implements OnInit, AfterContentInit  {
   public informationProductionOrder = [{ name: 'Detalhes' , code: '', dateClose:'', finalValue: ''}];
   public columDetailsOdemProduction = this.GetColummProductionOrdem()
   public page = 1;
@@ -71,10 +71,25 @@ export class KardexPrototipoOrdemproductionComponent implements OnInit {
       valueCost: 0.00
     }]
   ]
-  constructor() { }
+  coffeeConsumption: Array<PoChartSerie> = [
+    { label: 'Finland', data: 9.6, tooltip: 'Finland (Europe)' },
+    { label: 'Norway', data: 7.2, tooltip: 'Norway (Europe)' },
+    { label: 'Netherlands', data: 6.7, tooltip: 'Netherlands (Europe)' },
+    { label: 'Slovenia', data: 6.1, tooltip: 'Slovenia (Europe)' },
+    { label: 'Austria', data: 5.5, tooltip: 'Austria (Europe)' }
+  ];
+  public coffeConsumingChartType: PoChartType = PoChartType.Donut;
+  @ViewChild(PoAccordionItemComponent, { static: true }) questionOne: PoAccordionItemComponent;
+  @ViewChild(PoTabComponent, { static: true }) poTabs: PoTabComponent;
+
+  ngAfterContentInit() {
+    this.questionOne.expand();
+  }
+  constructor(private poAlert: PoDialogService){ }
 
   ngOnInit() {
     this.productionOrderItemTable= new MockCostFilterProductionOrder().mockCostFilterProductionOrderItems.items
+    this.poTabs.active =true
   }
 
   GetColummProductionOrdem(): Array<PoTableColumn>{
@@ -99,5 +114,12 @@ export class KardexPrototipoOrdemproductionComponent implements OnInit {
     { action: undefined, alt: undefined, image: 'undefined', link: undefined },
     { action: undefined, alt: undefined, image: 'undefined', link: undefined }
   ];
+   showMeTheDates(event: any) {
+    this.poAlert.alert({
+      title: 'Statistic',
+      message: `${event.label} consuming ${event.data}kg per capita!`,
+      ok: () => {}
+    });
+  }
 
 }

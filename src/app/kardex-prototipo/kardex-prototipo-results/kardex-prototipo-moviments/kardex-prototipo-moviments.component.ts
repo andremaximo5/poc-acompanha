@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { PoTableAction, PoTableColumn } from '@po-ui/ng-components';
+import { AfterContentInit, Component, OnInit, ViewChild } from '@angular/core';
+import { PoTabComponent, PoTableAction, PoTableColumn, PoTabsComponent } from '@po-ui/ng-components';
 import { MockKardexMoviment } from './mock-moviments';
 import { Router } from '@angular/router';
 import { MockCostFilterProductionOrder } from './kardex-prototipo-ordemproduction/mock-ordemproduction';
@@ -8,7 +8,7 @@ import { MockCostFilterProductionOrder } from './kardex-prototipo-ordemproductio
   selector: 'app-kardex-prototipo-moviments',
   templateUrl: './kardex-prototipo-moviments.component.html',
 })
-export class KardexPrototipoMovimentsComponent implements OnInit {
+export class KardexPrototipoMovimentsComponent implements OnInit  {
   public getcodeProct = ''
   public getdescriptionProduct = ''
   public getdataInitial:any
@@ -37,12 +37,14 @@ export class KardexPrototipoMovimentsComponent implements OnInit {
       label: "Detalhes",
      }
   ];
+  @ViewChild(PoTabComponent, { static: true }) poTabs: PoTabComponent;
+
   constructor(public router: Router) { }
 
   ngOnInit() {
     this.columnsMoviment = this.getColumnMovements()
     this.movimentTableItems = new MockKardexMoviment().items
-
+      this.poTabs.active =true ;
   }
 
   getTitle(): string {
