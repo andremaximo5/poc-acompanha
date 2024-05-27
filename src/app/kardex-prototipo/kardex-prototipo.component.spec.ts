@@ -16,6 +16,7 @@ describe('KardexPrototipoComponent', () => {
     .compileComponents();
   }));
 
+
   beforeEach(() => {
     fixture = TestBed.createComponent(KardexPrototipoComponent);
     component = fixture.componentInstance;
