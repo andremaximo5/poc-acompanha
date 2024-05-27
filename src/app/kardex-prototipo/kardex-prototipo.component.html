@@ -6,35 +6,42 @@
             [p-secondary-label]="nextLabelWidget" (p-primary-action)="stepper.previous()"
             (p-secondary-action)="stepper.next()">
             <div class="po-row">
-              <po-multiselect
+              <po-multiselect 
                 #multiselectBranch
-                [p-show-required]="true"
                 p-placeholder="Selecione a filial"
+                [p-required]="true"
                 class="po-md-6"
-                id="multiselectBranch">
-              </po-multiselect>
-              <po-lookup class="po-md-6" name="lookup"
-                formControlName="produto"
-                p-field-label="codigo"
-                [p-optional]="true"
-                [p-columns]="getColumnsProduct()"
-                p-placeholder="Selecione o produto"
-                [p-infinite-scroll]="true" [p-multiple]="true">
-              </po-lookup>
-              <po-multiselect class="po-md-6" formControlName="tipo"
-                [p-optional]="true"
-                p-placeholder="Selecione o tipo"
-                [p-options]="productType" p-label="Tipo">
+                formControlName="branch"
+                id="multiselectBranch"
+                p-label="Filiais"
+                [p-disabled]="false"
+                [p-options]="branches">
               </po-multiselect>
 
-              <po-lookup class="po-md-6" name="lookupGroup"
+              <po-multiselect
+                class="po-md-6"
+                formControlName="produto"
+                p-label="Produtos"
+                p-placeholder="Selecione o produto"
+                [p-options]="products">
+              </po-multiselect>
+
+              <po-multiselect
+                class="po-md-6"
+                formControlName="tipo"
+                p-placeholder="Selecione o tipo"
+                [p-options]="productType"
+                p-label="Tipo">
+              </po-multiselect>
+
+              <po-multiselect
+                class="po-md-6"
                 formControlName="grupo"
-                p-field-label="codigo"
-                [p-optional]="true"
-                [p-columns]="getColumnsProduct()"
+                p-label="Grupo de produtos"
                 p-placeholder="Selecione o grupo"
-                [p-infinite-scroll]="true" [p-multiple]="true">
-              </po-lookup>
+                [p-options]="productGroup">
+              </po-multiselect>
+
             </div>
             <po-switch class="po-md-6 po-mt-2"
               formControlName="movimento"
@@ -81,14 +88,13 @@
             </po-select>
 
             <div class="po-row">
-              <po-lookup class="po-md-6 po-mt-2"
-                name="lookupWareHouse"
+              <po-multiselect
+                class="po-md-6 po-mt-2"
                 formControlName="warehouse"
-                p-field-label="codigo"
-                [p-columns]="getColumnsProduct()"
+                p-label="Armazém"
                 p-placeholder="Selecione o armazém"
-                [p-infinite-scroll]="true" [p-multiple]="true">
-              </po-lookup>
+                [p-options]="warehouses">
+              </po-multiselect>
 
               <po-select class="po-md-6 po-mt-2"
                 formControlName="ordem"
@@ -97,11 +103,21 @@
                 [p-options]="optionsSequeCalc">
               </po-select>
             </div>
-            <po-switch formControlName="listTransLoc"
+
+            <po-switch
+              formControlName="listTransLoc"
               class="po-md-6 po-mt-2" name="switch"
               p-label="Listar transferência de localização"
               p-label-off="Sim" p-label-on="Não">
             </po-switch>
+
+            <po-switch
+              formControlName="custoPartes"
+              class="po-md-6 po-mt-2" name="switch"
+              p-label="Exibir informações do custo em partes"
+              p-label-off="Sim" p-label-on="Não">
+            </po-switch>
+
           </po-widget>
       </po-step>
     </po-stepper>
