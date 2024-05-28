@@ -1,6 +1,7 @@
 import { AfterContentInit, Component, OnInit, ViewChild } from '@angular/core';
 import { PoAccordionItemComponent, PoChartSerie, PoChartType, PoDialogService, PoSlideItem, PoTabComponent, PoTableColumn } from '@po-ui/ng-components';
 import { MockCostFilterProductionOrder } from './mock-ordemproduction';
+import { MockCostFilterProductionOrderParts } from './mock-odemprodutction-parts';
 
 @Component({
   selector: 'app-kardex-prototipo-ordemproduction',
@@ -77,8 +78,7 @@ export class KardexPrototipoOrdemproductionComponent implements OnInit, AfterCon
     { label: 'Finland', data: 9.6, tooltip: 'Finland (Europe)' },
     { label: 'Norway', data: 7.2, tooltip: 'Norway (Europe)' },
     { label: 'Netherlands', data: 6.7, tooltip: 'Netherlands (Europe)' },
-    { label: 'Slovenia', data: 6.1, tooltip: 'Slovenia (Europe)' },
-    { label: 'Austria', data: 5.5, tooltip: 'Austria (Europe)' }
+    { label: 'Slovenia', data: 6.1, tooltip: 'Slovenia (Europe)' }
   ];
   public coffeConsumingChartType: PoChartType = PoChartType.Donut;
   @ViewChild(PoAccordionItemComponent, { static: true }) questionOne: PoAccordionItemComponent;
@@ -91,7 +91,7 @@ export class KardexPrototipoOrdemproductionComponent implements OnInit, AfterCon
 
   ngOnInit() {
     this.productionOrderItemTable= new MockCostFilterProductionOrder().mockCostFilterProductionOrderItems.items
-    this.productionOrderItemTablePart = new MockCostFilterProductionOrder().mockCostFilterProductionOrderItems.items
+    this.productionOrderItemTablePart = new MockCostFilterProductionOrderParts().mockCostFilterProductionOrderItems.items
     this.poTabs.active =true
   }
 

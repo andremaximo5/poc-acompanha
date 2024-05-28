@@ -3,6 +3,7 @@ import { PoAccordionItemComponent, PoChartSerie, PoChartType, PoDialogService, P
 import { MockKardexMoviment } from './mock-moviments';
 import { Router } from '@angular/router';
 import { MockCostFilterProductionOrder } from './kardex-prototipo-ordemproduction/mock-ordemproduction';
+import { MockKardexMovimentParts } from './mock-moviments-parts';
 
 @Component({
   selector: 'app-kardex-prototipo-moviments',
@@ -28,6 +29,7 @@ export class KardexPrototipoMovimentsComponent implements OnInit,  AfterContentI
   public outflowTotalBalanceFormated:any
   public quantityvariation:any
   public movimentTableItems:any
+  public movimentTableItemsParts:any
   public totalRecordCount:any
   public columnsMoviment:any
   public columnsMovimentParts: any;
@@ -42,8 +44,7 @@ export class KardexPrototipoMovimentsComponent implements OnInit,  AfterContentI
     { label: 'Finland', data: 9.6, tooltip: 'Finland (Europe)' },
     { label: 'Norway', data: 7.2, tooltip: 'Norway (Europe)' },
     { label: 'Netherlands', data: 6.7, tooltip: 'Netherlands (Europe)' },
-    { label: 'Slovenia', data: 6.1, tooltip: 'Slovenia (Europe)' },
-    { label: 'Austria', data: 5.5, tooltip: 'Austria (Europe)' }
+    { label: 'Slovenia', data: 6.1, tooltip: 'Slovenia (Europe)' }
   ];
   public coffeConsumingChartType: PoChartType = PoChartType.Donut;
   @ViewChild(PoTabComponent, { static: true }) poTabs: PoTabComponent;
@@ -57,6 +58,7 @@ export class KardexPrototipoMovimentsComponent implements OnInit,  AfterContentI
     this.columnsMoviment = this.getColumnMovements()
     this.columnsMovimentParts = this.getColumnMovementsParts()
     this.movimentTableItems = new MockKardexMoviment().items
+    this.movimentTableItemsParts = new MockKardexMovimentParts().items
       this.poTabs.active =true ;
   }
 
