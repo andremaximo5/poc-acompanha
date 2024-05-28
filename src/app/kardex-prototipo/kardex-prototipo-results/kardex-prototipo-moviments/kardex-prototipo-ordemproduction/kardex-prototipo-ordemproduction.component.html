@@ -92,8 +92,8 @@
   </p>
   <po-tabs class="po-lg-12">
     <po-tab p-label="Movimentos">
-      <po-table p-container="border" [p-columns]="columDetailsOdemProduction" [p-hide-table-search]="true"
-        [p-items]="productionOrderItemTable" [p-max-columns]="9" [p-infinite-scroll]="true" [p-height]="400"
+      <po-table p-container="border" [p-columns]="columDetailsOdemProduction"
+        [p-items]="productionOrderItemTable" [p-max-columns]="9" [p-hide-table-search]="true" [p-actions-right]="false" [p-height]="400"
         [p-sort]="true" p-container="shadow" [p-height]="400">
         <ng-template p-table-column-template [p-property]="'cf'" let-value>
           <div class="type-label-movimentsOp {{ value.substr(1, 2) | uppercase }}">
@@ -103,8 +103,8 @@
       </po-table>
     </po-tab>
     <po-tab p-label="Movimentos partes">
-      <po-table p-container="border" [p-columns]="columnsMovimentPart" [p-hide-table-search]="true"
-        [p-items]="productionOrderItemTablePart" [p-max-columns]="9" [p-infinite-scroll]="true" [p-height]="400"
+      <po-table p-container="border" [p-columns]="columnsMovimentPart"
+        [p-items]="productionOrderItemTablePart" [p-max-columns]="9" [p-hide-table-search]="true" [p-actions-right]="false" [p-height]="400"
         [p-sort]="true" p-container="shadow" [p-height]="400">
         <ng-template p-table-column-template [p-property]="'cf'" let-value>
           <div class="type-label-movimentsOp {{ value.substr(1, 2) | uppercase }}">

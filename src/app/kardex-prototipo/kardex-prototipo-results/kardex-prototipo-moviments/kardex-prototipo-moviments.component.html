@@ -159,7 +159,7 @@
   <po-tabs class="po-lg-12">
     <po-tab p-label="Movimento">
       <po-table [p-columns]="columnsMoviment" [p-items]="movimentTableItems" [p-actions]="actions" [p-height]="400"
-        [p-hide-table-search]="true" [p-actions-right]="false">
+        [p-hide-table-search]="false" [p-actions-right]="false">
         <ng-template p-table-column-template [p-property]="'archiveLabel'" let-value>
           <div class="type-label-moviments {{ value }}">
             {{
@@ -179,7 +179,7 @@
     </po-tab>
     <po-tab #poTabs p-label="Mov. Partes">
          <po-table [p-columns]="columnsMovimentParts" [p-items]="movimentTableItems" [p-actions]="actions" [p-height]="400"
-        [p-hide-table-search]="true" [p-actions-right]="false">
+        [p-hide-table-search]="false" [p-actions-right]="false">
         <ng-template p-table-column-template [p-property]="'archiveLabel'" let-value>
           <div class="type-label-moviments {{ value }}">
             {{

@@ -41,11 +41,14 @@ export class KardexPrototipoMovimentsComponent implements OnInit,  AfterContentI
      }
   ];
   coffeeConsumption: Array<PoChartSerie> = [
-    { label: 'Finland', data: 9.6, tooltip: 'Finland (Europe)' },
-    { label: 'Norway', data: 7.2, tooltip: 'Norway (Europe)' },
-    { label: 'Netherlands', data: 6.7, tooltip: 'Netherlands (Europe)' },
-    { label: 'Slovenia', data: 6.1, tooltip: 'Slovenia (Europe)' }
+    { label: 'Plastico', data: 9.6, tooltip: 'Plastico' },
+    { label: 'Aluminio', data: 7.2, tooltip: 'Aluminio' },
+    { label: 'Outras MPs', data: 6.7, tooltip: 'Outras MPs' },
+    { label: 'Embalagem', data: 6.1, tooltip: 'Embalagem' },
+    { label: 'Mao de Obra', data: 6.1, tooltip: 'Mao de Obra' },
+    { label: 'Outros', data: 6.1, tooltip: 'Mao de Obra' },
   ];
+
   public coffeConsumingChartType: PoChartType = PoChartType.Donut;
   @ViewChild(PoTabComponent, { static: true }) poTabs: PoTabComponent;
   @ViewChild(PoModalComponent,{static: true}) poModal: PoModalComponent;
@@ -130,12 +133,13 @@ export class KardexPrototipoMovimentsComponent implements OnInit,  AfterContentI
       { property: 'code', label: 'Código', type: 'string', width: '15%', visible: false },
       { property: 'description', label: 'Descrição', type: 'string', width: '18%', visible: false },
       { property: 'quantity', label: 'Quantidade', type: 'number' },
-      { property: 'cost', label: 'PART01', type: 'number' },
-      { property: 'averagecost' , label: 'PART02', type: 'number' },
-      { property: 'totalquantity', label: 'PART03',type: 'number' },
-      { property: 'totalcost', label: 'PART04', type: 'number' },
-      { property: 'typingdate', label: 'PART05', type: 'date' },
-      { property: 'op', label: 'PART06', type: 'string' },
+      { property: 'cost', label: 'Custo', type: 'number' },
+      { property: 'plastico', label: 'Plastico', type: 'number' },
+      { property: 'aluminio' , label: 'Aluminio', type: 'number' },
+      { property: 'outrasPartes', label: 'Outras MPs',type: 'number' },
+      { property: 'embalagem', label: 'Embalagem', type: 'number' },
+      { property: 'mo', label: 'Mão de Obra', type: 'number' },
+      { property: 'outras', label: 'Outras', type: 'number' },
       { property: 'batch', label: 'Outros', type: 'string', visible: false },);
       return this.columnsMovimentParts;
   }

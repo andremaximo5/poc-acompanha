@@ -22,23 +22,23 @@ export class KardexPrototipoOrdemproductionComponent implements OnInit, AfterCon
       {
         property: 'qtdREq',
         label: 'Por Requisição',
-        value: 0,
+        value: 510,
         labelCost: '/Custo da Requisição',
-        valueCost: 0.00
+        valueCost: 4.400
       },
       {
         property: 'qtdprod',
         label: 'Por Produção',
-        value: 0.01,
+        value: 200,
         labelCost: "/Custo da Produção",
-        valueCost: 0.10
+        valueCost: 4.400
       },
       {
         property: 'qtdelvol',
         label: 'Por devolução',
-        value: 1.00,
+        value: 0.00,
         labelCost: "/Custo da devolução",
-        valueCost: 0.10
+        valueCost: 0.00
       }
     ],
     [
@@ -75,10 +75,11 @@ export class KardexPrototipoOrdemproductionComponent implements OnInit, AfterCon
     }]
   ]
   coffeeConsumption: Array<PoChartSerie> = [
-    { label: 'Finland', data: 9.6, tooltip: 'Finland (Europe)' },
-    { label: 'Norway', data: 7.2, tooltip: 'Norway (Europe)' },
-    { label: 'Netherlands', data: 6.7, tooltip: 'Netherlands (Europe)' },
-    { label: 'Slovenia', data: 6.1, tooltip: 'Slovenia (Europe)' }
+    { label: 'Plastico', data: 9.6, tooltip: 'Plastico' },
+    { label: 'Aluminio', data: 7.2, tooltip: 'Aluminio' },
+    { label: 'Outras MPs', data: 6.7, tooltip: 'Outras MPs' },
+    { label: 'Embalagem', data: 6.1, tooltip: 'Embalagem' },
+    { label: 'Mao de Obra', data: 6.1, tooltip: 'Mao de Obra' },
   ];
   public coffeConsumingChartType: PoChartType = PoChartType.Donut;
   @ViewChild(PoAccordionItemComponent, { static: true }) questionOne: PoAccordionItemComponent;
@@ -101,7 +102,7 @@ export class KardexPrototipoOrdemproductionComponent implements OnInit, AfterCon
     columnsMoviment.push(
       { property: 'cf', label: 'Tipo de movimentação', width: '15%', type: 'columnTemplate' },
       { property: 'code', label: 'Código do produto', type: 'string', width: '25%' },
-      { property: 'description', label: 'Descrição', type: 'string', visible: false },
+      { property: 'description', label: 'Descrição', type: 'string', visible: true },
       { property: 'unitymesure', label: 'Unidade de Medida', type: 'string', visible: false },
       { property: 'rawquant', label: 'Quantidade', type: 'number' },
       { property: 'rawcost', label: 'Custo', type: 'number'},
@@ -118,17 +119,18 @@ export class KardexPrototipoOrdemproductionComponent implements OnInit, AfterCon
 
     columnsMovimentPart.push(
       { property: 'cf', label: 'Tipo de movimentação', width: '15%', type: 'columnTemplate' },
-      { property: 'code', label: 'Código do produto', type: 'string', width: '25%' },
-      { property: 'description', label: 'Descrição', type: 'string', visible: false },
+      { property: 'code', label: 'Código do produto', type: 'string', width: '18%' },
+      { property: 'description', label: 'Descrição', type: 'string', visible: true },
       { property: 'unitymesure', label: 'Unidade de Medida', type: 'string', visible: false },
       { property: 'rawquant', label: 'Quantidade', type: 'number' },
-      { property: 'rawcost', label: 'Part01', type: 'number'},
-      { property: 'averagecost', label: 'Part02', type: 'number' },
-      { property: 'date', label: 'Part03', type: 'date' },
-      { property: 'document', label: 'Part04', type: 'string' },
-      { property: 'standardcost', label: 'Part05', type: 'number' },
-      { property: 'standardcosttotal', label: 'Part06', type: 'number' },
-      { property: 'standardcosttotal2', label: 'Outros', type: 'number' })
+      { property: 'rawcost', label: 'Custo', type: 'number'},
+      { property: 'plastico', label: 'Plastico', type: 'number'},
+      { property: 'aluminio', label: 'Aluminio', type: 'number' },
+      { property: 'outrasmps', label: 'Outras MPs', type: 'number' },
+      { property: 'embalagem', label: 'Embalagem', type: 'number' },
+      { property: 'mo', label: 'Mão de Obra', type: 'number' },
+      { property: 'standardcosttotal', label: 'Part06', type: 'number',  visible: false},
+      { property: 'standardcosttotal2', label: 'Outros', type: 'number',   visible: false })
     return columnsMovimentPart;
   }
   public landscapes: Array<PoSlideItem> = [
