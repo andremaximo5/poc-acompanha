@@ -1,4 +1,4 @@
-<po-page-list #poPageList p-title="descriptionProduct" p-title="Relação por ordem de produção">
+<po-page-list #poPageList p-title="descriptionProduct"  [p-breadcrumb]="breadcrumb" p-title="Relação por ordem de produção">
   <po-list-view p-property-title="name" [p-items]="informationProductionOrder">
     <ng-template p-list-view-content-template let-item>
       <div class="po-row">

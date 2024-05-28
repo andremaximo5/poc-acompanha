@@ -1,5 +1,5 @@
 import { AfterContentInit, Component, OnInit, ViewChild } from '@angular/core';
-import { PoAccordionItemComponent, PoChartSerie, PoChartType, PoDialogService, PoModalComponent, PoTabComponent, PoTableAction, PoTableColumn, PoTabsComponent } from '@po-ui/ng-components';
+import { PoAccordionItemComponent, PoBreadcrumb, PoChartSerie, PoChartType, PoDialogService, PoModalComponent, PoTabComponent, PoTableAction, PoTableColumn, PoTabsComponent } from '@po-ui/ng-components';
 import { MockKardexMoviment } from './mock-moviments';
 import { Router } from '@angular/router';
 import { MockCostFilterProductionOrder } from './kardex-prototipo-ordemproduction/mock-ordemproduction';
@@ -48,6 +48,11 @@ export class KardexPrototipoMovimentsComponent implements OnInit,  AfterContentI
     { label: 'Mao de Obra', data: 6.1, tooltip: 'Mao de Obra' },
     { label: 'Outros', data: 6.1, tooltip: 'Mao de Obra' },
   ];
+  public readonly breadcrumb: PoBreadcrumb = {
+    items: [
+      { label: 'Resultados', link: '/kardexResults' },
+      { label: 'Movimentos' }]
+  };
 
   public coffeConsumingChartType: PoChartType = PoChartType.Donut;
   @ViewChild(PoTabComponent, { static: true }) poTabs: PoTabComponent;
