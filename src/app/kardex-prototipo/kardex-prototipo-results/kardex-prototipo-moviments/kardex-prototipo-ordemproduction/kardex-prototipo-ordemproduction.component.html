@@ -42,22 +42,11 @@
   <po-accordion class="po-lg-12 po-mb-1">
     <po-accordion-item #questionOne p-label="Partes %">
       <!-- Resumo de custo final -->
-      <po-widget class="po-lg-6">
-        <po-chart class="po-lg-8" p-title="Percentual Custo das partes" [p-series]="coffeeConsumption"
+      <po-widget class="po-lg-12">
+        <po-chart class="po-lg-12" p-title="Percentual Custo das partes" [p-series]="coffeeConsumption"
           [p-type]="coffeConsumingChartType" (p-series-click)="showMeTheDates($event)">
         </po-chart>
       </po-widget>
-      <div class="po-md-6 po-mt-2">
-        <po-widget [p-height]="198">
-          <div class="po-font-title po-text-center po-pt-5">66 billion</div>
-          <div class="po-text-center">cups of coffee are consumed per year in U.S.</div>
-        </po-widget>
-
-        <po-widget [p-height]="198">
-          <div class="po-font-title po-text-center po-pt-5">2nd most</div>
-          <div class="po-text-center">traded commodity in the world second to Oil.</div>
-        </po-widget>
-      </div>
     </po-accordion-item>
   </po-accordion>
   <p class="po-font-subtitle font-color po-lg-6 po-md-12 po-sm-6 po-mt-3">

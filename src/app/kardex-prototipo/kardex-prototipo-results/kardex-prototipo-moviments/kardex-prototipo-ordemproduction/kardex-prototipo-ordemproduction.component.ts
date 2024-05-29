@@ -148,7 +148,7 @@ export class KardexPrototipoOrdemproductionComponent implements OnInit, AfterCon
    showMeTheDates(event: any) {
     this.poAlert.alert({
       title: 'Statistic',
-      message: `${event.label} consuming ${event.data}kg per capita!`,
+      message: `${event.label} consuming ${event.data}`,
       ok: () => {}
     });
   }
