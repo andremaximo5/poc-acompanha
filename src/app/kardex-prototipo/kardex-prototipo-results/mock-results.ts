@@ -172,7 +172,7 @@ export class MockKardexProduct {
           "outflowtotalquantity": 0,
           "outflowtotalbalance": 0,
           "quantityvariation": 25
-        }, 
+        },
         {
           "inverseorder": 1,
           "order": 9,
@@ -196,7 +196,7 @@ export class MockKardexProduct {
           "outflowtotalquantity": 0,
           "outflowtotalbalance": 0,
           "quantityvariation": 0
-        }, 
+        },
 
         {
           "inverseorder": 1,

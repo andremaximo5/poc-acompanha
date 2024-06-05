@@ -39,23 +39,18 @@ export class KardexPrototipoComponent implements OnInit {
   ];
   public vertical: string= 'Vertical'
   public branches: Array<PoMultiselectOption> = [
-    { value: 'dmg01', label: 'D MG 01 - Filial BELO HOR' },
-    { value: 'dmg02', label: 'D MG 02 - Filial UBERABA' },
-    { value: 'drj01', label: 'D RJ 01 - Filial RIO DE J' },
-    { value: 'drj02', label: 'D RJ 02 - Filial NITEROI' }
+    { value: 'dmg01', label: 'D MG 01 - Filial BELO HOR' }
   ];
   public products: Array<PoMultiselectOption> = [
-    { value: 'COM00000000000000000000000011', label: 'COM00000000000000000000000011 - PRODUTO PADRAO' },
-    { value: 'COM000000000006', label: 'COM000000000006 - REQUEIJAO CREMOSO LIGHT 175 G' },
-    { value: 'COM0000MAT103CT030', label: 'COM0000MAT103CT030 - PROD COM0000MAT103CT030' },
-    { value: 'FAT00000000000000000000000090', label: 'FAT00000000000000000000000090 - PRODUTO FATURAM - LOTE / END' },
-    { value: 'GCTCNTA300CT211BLQ', label: 'GCTCNTA300CT211BLQ - PRODUTO PADRAO' },
-    { value: '000000000000000000000000000010', label: '000000000000000000000000000010 - PRODUTO WMS' },
-    { value: '000000000000000000000000000061', label: '000000000000000000000000000061 - PRODUTO KIT TEC' },
-    { value: '000000000000000000000000001LOC', label: '000000000000000000000000001LOC - SIGALOC' },
-    { value: '000000000000000000000000001PMS', label: '000000000000000000000000001PMS - PRODUTO PMS 001' },
-    { value: '000000000000000000000000002KIT', label: '000000000000000000000000002KIT - KIT 99 ITENS SIGATEC' },
-    { value: '000000000000000000000000002LOC', label: '000000000000000000000000002LOC - SIGALOC 2' },
+    { value: 'M0003', label: 'M0003 - PRATO 0,5 (ELAB)' },
+    { value: '00139', label: '00139 - SORO L. RESFRIADO' },
+    { value: '50002', label: '50002 - CORANTE URUCUM  ' },
+    { value: '50005', label: '50005 - SAL REFINADO' },
+    { value: '54157', label: '54157 - COAGULANTE' },
+    { value: '54215', label: '54215 - FERM.DVS 736/742' },
+    { value: '59749', label: '59749 - CLORETO DE CALCIO' },
+    { value: 'L0003', label: 'L0003 - LEITE PAD PRA 0,5' },
+    { value: '50802', label: '50802 - CHAPA.PAPELAO ONDU' }
   ];
   public productGroup: Array<PoMultiselectOption> = [
     { value: '0001', label: '0001 - Plastico' },
@@ -63,23 +58,10 @@ export class KardexPrototipoComponent implements OnInit {
     { value: '0003', label: '0003 - Aluminio' },
     { value: '0004', label: '0004 - Eletronicos' },
     { value: '0005', label: '0005 - Pneumaticos' },
-    { value: '0006', label: '0006 - Produtos Quimicos' },
-    { value: '0007', label: '0007 - Produto de Venda' },
-    { value: '0008', label: '0008 - SIGATUR' },
-    { value: '0009', label: '0009 - GRUPOSIGALOC' },
-    { value: '0010', label: '0010 - GRUPO TESTE SQA' }
+    { value: '0006', label: '0006 - Produtos Quimicos' }
   ];
   public warehouses: Array<PoMultiselectOption> = [
     { value: '01', label: '01 - Armazém 01' },
-    { value: '02', label: '02 - Armazém 02' },
-    { value: '03', label: '03 - Armazém 03' },
-    { value: '04', label: '04 - Armazém 04' },
-    { value: '05', label: '05 - Armazém 05' },
-    { value: '06', label: '06 - Armazém 06' },
-    { value: '07', label: '07 - Armazém 07' },
-    { value: '08', label: '08 - Armazém 08' },
-    { value: '09', label: '09 - Armazém 09' },
-    { value: '10', label: '10 - Armazém 10' }
   ];
 
 

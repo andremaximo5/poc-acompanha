@@ -38,12 +38,12 @@ export class KardexPrototipoResultsComponent implements OnInit {
       { property: 'description', label: "Descrição", type: 'string', width: '20%', visible: true },
       { property: 'code', label: "Código", type: 'string', width: '30%' },
       { property: 'warehouse', label: "Armazém", type: 'string', width: '10%' },
-      { property: 'initialbalance', label: "Custo Inicial", type: 'number',  },
-      { property: 'finalbalance', label: "Custo Final", type: 'number',  },
+      { property: 'initialbalance', label: "Custo Inicial", type: 'currency' },
+      { property: 'finalbalance', label: "Custo Final", type: 'currency' },
       { property: 'initialquantity', label: "Quantidade inicial", type: 'number',  },
       { property: 'finalquantity', label: "Quantidade Final", type: 'number', },
-      { property: 'initialaveragecost', label: "Custo médio inicial", type: 'number', visible: true },
-      { property: 'finalaveragecost', label: "Custo médio final", type: 'number', visible: true },
+      { property: 'initialaveragecost', label: "Custo médio inicial", type: 'currency',visible: true },
+      { property: 'finalaveragecost', label: "Custo médio final", type: 'currency', visible: true },
       { property: 'variation', label: "Variação do custo(%)", type: 'number' })
     return this.columnsMoviment
   }

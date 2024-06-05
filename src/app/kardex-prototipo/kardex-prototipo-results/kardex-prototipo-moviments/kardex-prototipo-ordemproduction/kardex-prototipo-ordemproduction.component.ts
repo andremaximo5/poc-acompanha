@@ -132,12 +132,12 @@ export class KardexPrototipoOrdemproductionComponent implements OnInit, AfterCon
       { property: 'description', label: 'Descrição', type: 'string', visible: true },
       { property: 'unitymesure', label: 'Unidade de Medida', type: 'string', visible: false },
       { property: 'rawquant', label: 'Quantidade', type: 'number' },
-      { property: 'rawcost', label: 'Custo', type: 'number'},
-      { property: 'leite', label: 'Leite', type: 'number'},
-      { property: 'ingredientes', label: 'Ingredientes', type: 'number' },
-      { property: 'aditivos', label: 'Aditivos', type: 'number' },
-      { property: 'embalagem', label: 'Embalagem', type: 'number' },
-      { property: 'mod', label: 'Mão de Obra', type: 'number' },
+      { property: 'rawcost', label: 'Custo',type: 'currency'},
+      { property: 'leite', label: 'Leite', type: 'currency'},
+      { property: 'ingredientes', label: 'Ingredientes', type: 'currency' },
+      { property: 'aditivos', label: 'Aditivos', type: 'currency' },
+      { property: 'embalagem', label: 'Embalagem', type: 'currency' },
+      { property: 'mod', label: 'Mão de Obra', type: 'currency' },
       { property: 'standardcosttotal', label: 'Part06', type: 'number',  visible: false},
       { property: 'standardcosttotal2', label: 'Outros', type: 'number',   visible: false })
     return columnsMovimentPart;
