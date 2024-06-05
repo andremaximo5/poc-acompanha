@@ -9,7 +9,7 @@ import { MockCostFilterProductionOrderParts } from './mock-odemprodutction-parts
   styleUrls: ['./kardex-prototipo-ordemproduction.component.css']
 })
 export class KardexPrototipoOrdemproductionComponent implements OnInit, AfterContentInit  {
-  public informationProductionOrder = [{ name: 'Detalhes' , code: '', dateClose:'', finalValue: ''}];
+  public informationProductionOrder = [{ name: 'Detalhes' , code: 'pcpBCG010', dateClose:'31/05/2024', finalValue: 'R$ 74.900,00'}];
   public columDetailsOdemProduction = this.GetColummProductionOrdem()
   public columnsMovimentPart = this.GetColummProductionOrdemPart()
   public page = 1;
@@ -22,16 +22,16 @@ export class KardexPrototipoOrdemproductionComponent implements OnInit, AfterCon
       {
         property: 'qtdREq',
         label: 'Por Requisição',
-        value: 510,
+        value: 16000,
         labelCost: '/Custo da Requisição',
-        valueCost: 4.400
+        valueCost: 74900
       },
       {
         property: 'qtdprod',
         label: 'Por Produção',
-        value: 200,
+        value: 2000,
         labelCost: "/Custo da Produção",
-        valueCost: 4.400
+        valueCost: 74900
       },
       {
         property: 'qtdelvol',
@@ -75,11 +75,13 @@ export class KardexPrototipoOrdemproductionComponent implements OnInit, AfterCon
     }]
   ]
   coffeeConsumption: Array<PoChartSerie> = [
-    { label: 'Plastico', data: 9.6, tooltip: 'Plastico' },
-    { label: 'Aluminio', data: 7.2, tooltip: 'Aluminio' },
-    { label: 'Outras MPs', data: 6.7, tooltip: 'Outras MPs' },
-    { label: 'Embalagem', data: 6.1, tooltip: 'Embalagem' },
-    { label: 'Mao de Obra', data: 6.1, tooltip: 'Mao de Obra' },
+    { label: 'Ingredientes', data: 21.54, tooltip: 'Ingredientes', color: 'color-12'},
+    { label: 'Aditivos', data: 5.61, tooltip: 'Aditivos' },
+    { label: 'Leite', data: 7.23, tooltip: 'Leite' },
+    { label: 'Embalagens', data: 1.2, tooltip: 'Embalagens' },
+    { label: 'Mao de Obra', data: 0, tooltip: 'Mao de Obra' },
+    { label: 'Outros', data: 0, tooltip: 'Outros' },
+
   ];
   public readonly breadcrumb: PoBreadcrumb = {
     items: [
@@ -131,11 +133,11 @@ export class KardexPrototipoOrdemproductionComponent implements OnInit, AfterCon
       { property: 'unitymesure', label: 'Unidade de Medida', type: 'string', visible: false },
       { property: 'rawquant', label: 'Quantidade', type: 'number' },
       { property: 'rawcost', label: 'Custo', type: 'number'},
-      { property: 'plastico', label: 'Plastico', type: 'number'},
-      { property: 'aluminio', label: 'Aluminio', type: 'number' },
-      { property: 'outrasmps', label: 'Outras MPs', type: 'number' },
+      { property: 'leite', label: 'Leite', type: 'number'},
+      { property: 'ingredientes', label: 'Ingredientes', type: 'number' },
+      { property: 'aditivos', label: 'Aditivos', type: 'number' },
       { property: 'embalagem', label: 'Embalagem', type: 'number' },
-      { property: 'mo', label: 'Mão de Obra', type: 'number' },
+      { property: 'mod', label: 'Mão de Obra', type: 'number' },
       { property: 'standardcosttotal', label: 'Part06', type: 'number',  visible: false},
       { property: 'standardcosttotal2', label: 'Outros', type: 'number',   visible: false })
     return columnsMovimentPart;

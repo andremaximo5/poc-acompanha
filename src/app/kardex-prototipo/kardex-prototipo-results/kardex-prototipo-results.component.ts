@@ -34,16 +34,16 @@ export class KardexPrototipoResultsComponent implements OnInit {
     getColumnMovement(): Array<PoTableColumn> {
     this.columnsMoviment = [];
     this.columnsMoviment.push(
-      { property: 'branch', label: "Filial", type: 'string', width: '10%' },
-      { property: 'description', label: "Descrição", type: 'string', width: '20%', visible: false },
+      { property: 'branch', label: "Filial", type: 'string', width: '10%', visible: false},
+      { property: 'description', label: "Descrição", type: 'string', width: '20%', visible: true },
       { property: 'code', label: "Código", type: 'string', width: '30%' },
       { property: 'warehouse', label: "Armazém", type: 'string', width: '10%' },
       { property: 'initialbalance', label: "Custo Inicial", type: 'number',  },
       { property: 'finalbalance', label: "Custo Final", type: 'number',  },
       { property: 'initialquantity', label: "Quantidade inicial", type: 'number',  },
       { property: 'finalquantity', label: "Quantidade Final", type: 'number', },
-      { property: 'initialaveragecost', label: "Custo médio inicial", type: 'number', visible: false },
-      { property: 'finalaveragecost', label: "Custo médio final", type: 'number', visible: false },
+      { property: 'initialaveragecost', label: "Custo médio inicial", type: 'number', visible: true },
+      { property: 'finalaveragecost', label: "Custo médio final", type: 'number', visible: true },
       { property: 'variation', label: "Variação do custo(%)", type: 'number' })
     return this.columnsMoviment
   }

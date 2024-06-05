@@ -42,22 +42,11 @@
   <po-accordion class="po-lg-12 po-mb-1">
     <po-accordion-item #questionOne p-label="Partes %">
       <!-- Resumo de custo final -->
-      <po-widget class="po-lg-6">
-        <po-chart class="po-lg-8" p-title="Percentual Custo das partes" [p-series]="coffeeConsumption"
+      <po-widget class="po-lg-12">
+        <po-chart class="po-lg-12" p-title="Percentual Custo das partes" [p-series]="coffeeConsumption"
           [p-type]="coffeConsumingChartType" (p-series-click)="showMeTheDates($event)">
         </po-chart>
       </po-widget>
-      <div class="po-md-6 po-mt-2">
-        <po-widget [p-height]="198">
-          <div class="po-font-title po-text-center po-pt-5">66 billion</div>
-          <div class="po-text-center">cups of coffee are consumed per year in U.S.</div>
-        </po-widget>
-
-        <po-widget [p-height]="198">
-          <div class="po-font-title po-text-center po-pt-5">2nd most</div>
-          <div class="po-text-center">traded commodity in the world second to Oil.</div>
-        </po-widget>
-      </div>
     </po-accordion-item>
   </po-accordion>
   <p class="po-font-subtitle font-color po-lg-6 po-md-12 po-sm-6 po-mt-3">
@@ -104,7 +93,7 @@
     </po-tab>
     <po-tab p-label="Movimentos partes">
       <po-table p-container="border" [p-columns]="columnsMovimentPart"
-        [p-items]="productionOrderItemTablePart" [p-max-columns]="9" [p-hide-table-search]="true" [p-actions-right]="false" [p-height]="400"
+        [p-items]="productionOrderItemTablePart" [p-max-columns]="12" [p-hide-table-search]="true" [p-actions-right]="false" [p-height]="400"
         [p-sort]="true" p-container="shadow" [p-height]="400">
         <ng-template p-table-column-template [p-property]="'cf'" let-value>
           <div class="type-label-movimentsOp {{ value.substr(1, 2) | uppercase }}">

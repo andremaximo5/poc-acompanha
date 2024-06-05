@@ -5,28 +5,28 @@
         <!-- Resumo de custo inicial -->
         <po-widget class="po-lg-4 po-mb-1" p-title="Resumo de custo inicial" data-cy="cardInitCost" (p-click)="handleCarddChart()">
           <p class="po-font-text-small po-lg-12 po-md-12 po-sm-12 po-mb-2">
-            Em {{ getdataInitial }}
+            Em 01/05/2024
           </p>
           <div class="po-font-display po-text-center" data-cy="valueCardInitCostTot">
-            R$ {{ initialCostFormated }}
+            R$ 0,00
           </div>
           <p class="po-font-text-small po-text-center po-md-12 po-sm-12 po-mb-2">
-            "Valor total"
+            Valor total
           </p>
           <div class="po-row">
             <div class="po-lg-6 po-text-center po-font-title sample-container-dashboard" data-cy="valueCardInitCostQtd">
-              {{ initialQuantityFormated }}
+              0
             </div>
             <div class="po-lg-6 po-text-center po-font-title sample-container-dashboard" data-cy="valueCardInitCostCM">
-              R$ {{ initialAverageCostFormated }}
+              R$ 37,00
             </div>
           </div>
           <div class="po-row">
             <div class="po-lg-6 po-font-text-small po-text-center sample-container-dashboard">
-              Variação do custo médio
+              Quantidade
             </div>
             <div class="po-lg-6 po-font-text-small po-text-center sample-container-dashboard">
-              Totais de entradas e saídas
+              Custo Médio
             </div>
           </div>
         </po-widget>
@@ -34,10 +34,10 @@
         <!-- Resumo de custo final -->
         <po-widget class="po-lg-4 po-mb-1" p-title="Resumo de custo final"  data-cy="cardFinalCost" (p-click)="handleCarddChart()" >
           <p class="po-font-text-small po-lg-12 po-md-12 po-sm-12 po-mb-2">
-            Variação do custo médio {{ getdataFinal}}
+            Em 31/05/2024
           </p>
           <div class="po-font-display po-text-center" data-cy="valueCardFinalCostTot">
-            R$ {{ finalCostFormated }}
+            R$ 74.900,00
           </div>
           <p class="po-font-text-small po-text-center po-lg-12 po-md-12 po-sm-12 po-mb-2">
             Valor total
@@ -45,10 +45,10 @@
           <div class="po-row">
             <div class="po-lg-6 po-text-center po-font-title sample-container-dashboard"
               data-cy="valueCardFinalCostQtd">
-              {{ finalQuantityFormated }}
+              2000  
             </div>
             <div class="po-lg-6 po-text-center po-font-title sample-container-dashboard" data-cy="valueCardFinalCostCM">
-              R$ {{ finalAverageCostFormated }}
+              R$ 37,45
             </div>
           </div>
           <div class="po-row">
@@ -64,10 +64,10 @@
         <!-- Variacao % -->
         <po-widget class="po-lg-4 po-mb-1" p-title="Variação %" data-cy="cardCostVariation"  >
           <p class="po-font-text-small po-lg-12 po-md-12 po-sm-12 po-mb-2">
-            De {{ getyearFirst }} à {{ getfinalYear }}
+            De 01/05/2024 à 31/05/2024
           </p>
           <div class="po-font-display po-text-center" data-cy="valueCardCostVariation">
-            {{ getpercentageOfVariation }}
+            1,21%
           </div>
           <p class="po-font-text-small po-text-center po-lg-12 po-md-12 po-sm-12 po-mb-2">
             Resumo dos custos
@@ -178,7 +178,7 @@
       </po-table>
     </po-tab>
     <po-tab #poTabs p-label="Mov. Partes">
-         <po-table [p-columns]="columnsMovimentParts" [p-items]="movimentTableItems" [p-actions]="actions" [p-height]="400"
+         <po-table [p-columns]="columnsMovimentParts" [p-items]="movimentTableItemsParts" [p-actions]="actions" [p-height]="400"
         [p-hide-table-search]="false" [p-actions-right]="false">
         <ng-template p-table-column-template [p-property]="'archiveLabel'" let-value>
           <div class="type-label-moviments {{ value }}">

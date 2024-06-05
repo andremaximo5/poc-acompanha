@@ -31,7 +31,7 @@ export class MockKardexMoviment {
             "sequence": "110008",
             "document": "pcpBCG010",
             "series": "   ",
-            "quantity": 200,
+            "quantity": 2000,
             "secondaryquantity": 0,
             "project": "          ",
             "op": "pcpBCG01001   ",
@@ -39,16 +39,18 @@ export class MockKardexMoviment {
             "supplier": "      ",
             "store": "  ",
             "nftype": " ",
-            "cost": 4400,
+            "cost": 74900,
             "trt": "   ",
             "batch": "          ",
             "numberrecno": 2698,
             "locwarehouse": "01",
-            "averagecost": 22,
-            "totalquantity": 200,
-            "totalcost": 4400,
+            "averagecost": 37.45,
+            "totalquantity": 2000,
+            "totalcost": 74900,
             "archiveLabel": "productionOrder"
-        }
+        },
+
+
 
     ];
     this.hasNext =  true;

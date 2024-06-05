@@ -10,8 +10,8 @@ import { MockKardexMovimentParts } from './mock-moviments-parts';
   templateUrl: './kardex-prototipo-moviments.component.html',
 })
 export class KardexPrototipoMovimentsComponent implements OnInit,  AfterContentInit {
-  public getcodeProct = ''
-  public getdescriptionProduct = ''
+  public getcodeProct = 'M0003'
+  public getdescriptionProduct = 'PRATO 0,5 (ELAB)  '
   public getdataInitial:any
   public initialCostFormated:any
   public initialQuantityFormated:any
@@ -41,12 +41,13 @@ export class KardexPrototipoMovimentsComponent implements OnInit,  AfterContentI
      }
   ];
   coffeeConsumption: Array<PoChartSerie> = [
-    { label: 'Plastico', data: 9.6, tooltip: 'Plastico' },
-    { label: 'Aluminio', data: 7.2, tooltip: 'Aluminio' },
-    { label: 'Outras MPs', data: 6.7, tooltip: 'Outras MPs' },
-    { label: 'Embalagem', data: 6.1, tooltip: 'Embalagem' },
-    { label: 'Mao de Obra', data: 6.1, tooltip: 'Mao de Obra' },
-    { label: 'Outros', data: 6.1, tooltip: 'Mao de Obra' },
+    { label: 'Ingredientes', data: 21.54, tooltip: 'Ingredientes', color: 'color-12'},
+    { label: 'Aditivos', data: 5.61, tooltip: 'Aditivos' },
+    { label: 'Leite', data: 7.23, tooltip: 'Leite' },
+    { label: 'Embalagens', data: 1.2, tooltip: 'Embalagens' },
+    { label: 'Mao de Obra', data: 0, tooltip: 'Mao de Obra' },
+    { label: 'Outros', data: 0, tooltip: 'Outros' },
+
   ];
   public readonly breadcrumb: PoBreadcrumb = {
     items: [
@@ -139,11 +140,11 @@ export class KardexPrototipoMovimentsComponent implements OnInit,  AfterContentI
       { property: 'description', label: 'Descrição', type: 'string', width: '18%', visible: false },
       { property: 'quantity', label: 'Quantidade', type: 'number' },
       { property: 'cost', label: 'Custo', type: 'number' },
-      { property: 'plastico', label: 'Plastico', type: 'number' },
-      { property: 'aluminio' , label: 'Aluminio', type: 'number' },
-      { property: 'outrasPartes', label: 'Outras MPs',type: 'number' },
+      { property: 'leite', label: 'Leite', type: 'number' },
+      { property: 'ingredientes', label: 'Ingredientes', type: 'number' },
+      { property: 'aditivos' , label: 'Aditivos', type: 'number' },
       { property: 'embalagem', label: 'Embalagem', type: 'number' },
-      { property: 'mo', label: 'Mão de Obra', type: 'number' },
+      { property: 'mod', label: 'Mão de Obra', type: 'number' },
       { property: 'outras', label: 'Outras', type: 'number' },
       { property: 'batch', label: 'Outros', type: 'string', visible: false },);
       return this.columnsMovimentParts;

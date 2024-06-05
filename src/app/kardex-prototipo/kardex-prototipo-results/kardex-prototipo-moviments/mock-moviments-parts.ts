@@ -31,7 +31,7 @@ export class MockKardexMovimentParts {
         "sequence": "110008",
         "document": "pcpBCG010",
         "series": "   ",
-        "quantity": 200,
+        "quantity": 2000,
         "secondaryquantity": 0,
         "project": "          ",
         "op": "pcpBCG01001   ",
@@ -39,20 +39,20 @@ export class MockKardexMovimentParts {
         "supplier": "      ",
         "store": "  ",
         "nftype": " ",
-        "cost": 4400,
+        "cost": 74900,
         "trt": "   ",
         "batch": "          ",
         "numberrecno": 2698,
         "locwarehouse": "01",
-        "averagecost": 22,
-        "totalquantity": 200,
-        "totalcost": 4400,
+        "averagecost": 37.45,
+        "totalquantity": 2000,
+        "totalcost": 74900,
+        "leite":14460,
+        "ingredientes":46820,
+        "aditivos":11220,
+        "embalagem":2400,
+        "mod": 0, 
         "archiveLabel": "productionOrder",
-        "plastico":0,
-        "aluminio":0,
-        "outraspartes":0,
-        "embalagem":0,
-        "mo": 0
       },
 
     ];
@@ -109,13 +109,12 @@ export interface CostFilterMovimentsParts{
   averagecost: number;
   totalquantity: number;
   totalcost: number;
-  archiveLabel: string;
-  plastico:number;
-  aluminio: number;
-  outraspartes:number;
+  leite:number;
+  ingredientes:number;
+  aditivos: number;
   embalagem:number;
-  mo:number
-
+  mod :number
+  archiveLabel: string;
 
 }
 
